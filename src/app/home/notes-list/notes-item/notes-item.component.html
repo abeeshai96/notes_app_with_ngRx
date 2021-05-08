@@ -1,0 +1,11 @@
+<div class="list-group m-1">
+  <a
+    style="cursor: pointer"
+    [routerLink]="[index]"
+    routerLinkActive="active"
+    class="list-group-item list-group-item-action list-group-item-info"
+  >
+    <h5 class="list-group-item-heading">{{ note.title }}</h5>
+    <p class="list-group-item-text">{{ note.description }}</p>
+  </a>
+</div>

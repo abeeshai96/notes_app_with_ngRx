@@ -1,0 +1,14 @@
+<div style="width: 100%; height: 500px">
+  <as-split direction="horizontal" [gutterSize]="0">
+    <as-split-area [size]="44">
+      <ng-scrollbar visibility="hover" appearance="standard">
+        <app-notes-list></app-notes-list>
+      </ng-scrollbar>
+    </as-split-area>
+    <as-split-area [size]="55">
+      <ng-scrollbar visibility="hover" appearance="standard">
+        <router-outlet></router-outlet>
+      </ng-scrollbar>
+    </as-split-area>
+  </as-split>
+</div>

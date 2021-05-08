@@ -1,0 +1,18 @@
+<div class="container mt-3 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 mb-3">
+      <button class="btn btn-success btn-lg shadow-none" (click)="onAddNote()">
+        Add a new note
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col xs-12">
+      <app-notes-item
+        *ngFor="let noteEl of notes; let i = index"
+        [note]="noteEl"
+        [index]="i"
+      ></app-notes-item>
+    </div>
+  </div>
+</div>

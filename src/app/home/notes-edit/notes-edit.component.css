@@ -1,0 +1,19 @@
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+textarea.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+span {
+  font-style: italic;
+  font-size: small;
+  color: red;
+}
+
+.container {
+  margin-top: 90px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}

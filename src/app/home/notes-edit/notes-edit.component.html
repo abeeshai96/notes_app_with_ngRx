@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center">
+    <div class="alert alert-danger" *ngIf="formEditFlag">
+      <h6>No Changes found to save!</h6>
+    </div>
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+      <div class="row">
+        <div class="col-xs-12 p-1">
+          <div class="form-group">
+            <label for="title"><b>Title:</b></label>
+            <input
+              type="text"
+              id="title"
+              class="form-control"
+              ngModel
+              name="title"
+              required
+              #title="ngModel"
+              placeholder="Title"
+            />
+            <span class="help-block" *ngIf="!title.valid && title.touched"
+              >Please enter a title!</span
+            >
+          </div>
+        </div>
+        <div class="col-xs-12 p-1">
+          <div class="form-group">
+            <label for="date"><b>Date:</b></label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              class="form-control"
+              ngModel
+              required
+              date
+              #date="ngModel"
+            />
+            <span class="help-block" *ngIf="!date.valid && date.touched"
+              >Please enter a date!</span
+            >
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 p-1">
+          <div class="form-group">
+            <label for="description"><b>Description:</b></label>
+            <textarea
+              rows="3"
+              id="description"
+              class="form-control"
+              ngModel
+              name="description"
+              required
+              #desc="ngModel"
+              placeholder="Description"
+            ></textarea>
+            <span class="help-block" *ngIf="!desc.valid && desc.touched"
+              >Please enter description!</span
+            >
+          </div>
+        </div>
+        <div class="col-xs-12 p-1 ml-3">
+          <div class="form-group">
+            <label for="type"><b>Type:</b></label>
+            <select
+              name="type"
+              id="type"
+              [ngModel]="defaultType"
+              class="form-control"
+              required
+            >
+              <option *ngFor="let type of types" [value]="type">
+                {{ type | titlecase }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xs-12 p-1 ml-3">
+          <label id="priority"><b>Priority:</b></label>
+          <div class="radio" *ngFor="let priority of priorities">
+            <label>
+              <input
+                type="radio"
+                name="priority"
+                [ngModel]="defaultPriority"
+                [value]="priority"
+                required
+              />
+              {{ priority | titlecase }}
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button
+          type="submit"
+          class="btn btn-success shadow-none m-1"
+          [disabled]="!f.valid"
+        >
+          Save
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger shadow-none m-1"
+          (click)="onCancel()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
